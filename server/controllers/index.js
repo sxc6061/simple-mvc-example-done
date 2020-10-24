@@ -313,8 +313,13 @@ const updateAge = (req, res) => {
 
     doc.age++;
 
-    // if a match, send the match back
-    return res.json({ name: doc.name, breed: doc.breed, age: doc.age });
+    const savePromise = doc.save();
+
+    // send back the name as a success for now
+    savePromise.then(() => res.json({ name: doc.name, breed: doc.breed, age: doc.age }));
+
+    // if save error, just return an error for now
+    savePromise.catch((err) => res.status(500).json({ err }));
   });
 };
 
