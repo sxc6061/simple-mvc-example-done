@@ -301,7 +301,7 @@ const updateAge = (req, res) => {
     return res.status(400).json({ error: 'Name is required to perform a search' });
   }
 
-  return Dog.findByName(req.body.name, (err, doc) => {
+  Dog.findByName(req.body.name, (err, doc) => {
     // errs, handle them
     if (err) {
       return res.status(500).json({ err }); // if error, return it
