@@ -48,7 +48,7 @@ const DogSchema = new mongoose.Schema({
     trim: true,
   },
   
-  Age: {
+  age: {
     type: Number,
     min: 1,
     required: true,
@@ -77,7 +77,7 @@ DogSchema.statics.findByName = (name, callback) => {
     name,
   };
 
-  return DogSchema.findOne(search, callback);
+  return DogModel.findOne(search, callback);
 };
 
 // Create the cat model based on the schema. You provide it with a custom discriminator
