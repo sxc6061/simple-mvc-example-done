@@ -311,15 +311,14 @@ const updateAge = (req, res) => {
       return res.json({ error: 'No dogs found' });
     }
 
-    doc.age++;
+    
 
     const savePromise = doc.save();
 
     // send back the name as a success for now
     savePromise.then(() => res.json({ name: doc.name, breed: doc.breed, age: doc.age }));
 
-    // if save error, just return an error for now
-    savePromise.catch((err) => res.status(500).json({ err }));
+    return res;
   });
 };
 
