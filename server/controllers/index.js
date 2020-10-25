@@ -320,6 +320,7 @@ const updateAge = (req, res) => {
 
     return res;
   });
+  return res;
 };
 
 // function to handle a request to any non-real resources (404)
