@@ -317,7 +317,11 @@ const updateAge = (req, res) => {
     const savePromise = updateDog.save();
 
     // send back the name as a success for now
-    savePromise.then(() => res.json({ name: updateDog.name, breed: updateDog.breed, age: updateDog.age }));
+    savePromise.then(() => res.json({ 
+      name: updateDog.name, 
+      breed: updateDog.breed, 
+      age: updateDog.age 
+    }));
 
     return res;
   });
